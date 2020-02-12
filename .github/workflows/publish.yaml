@@ -19,7 +19,7 @@ jobs:
           env: production
 
       - name: Publish to S3
-        run: aws s3 sync public/. s3://shimmeringbee.io/ --cache-control max-age=120,no-cache,no-store,must-revalidate
+        run: aws s3 sync public/. s3://shimmeringbee.io/ --cache-control max-age=120,no-cache,no-store,must-revalidate --delete
         env:
           AWS_DEFAULT_REGION: eu-west-1
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

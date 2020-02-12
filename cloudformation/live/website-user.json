@@ -23,13 +23,6 @@
                             "Statement": [
                                 {
                                     "Action": [
-                                        "cloudfront:CreateInvalidation"
-                                    ],
-                                    "Resource": "*",
-                                    "Effect": "Allow"
-                                },
-                                {
-                                    "Action": [
                                         "s3:DeleteObject",
                                         "s3:GetBucketLocation",
                                         "s3:GetObject",
