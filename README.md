@@ -2,7 +2,7 @@
 
 [![license](https://img.shields.io/github/license/shimmeringbee/shimmeringbee.io.svg)](https://github.com/shimmeringbee/shimmeringbee.io/blob/master/LICENSE)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg)](https://github.com/RichardLitt/standard-readme)
-[![Actions Status](https://github.com/shimmeringbee/shimmeringbee.io/workflows/test/badge.svg)](https://github.com/shimmeringbee/shimmeringbee.io/actions)
+[![Actions Status](https://github.com/shimmeringbee/shimmeringbee.io/workflows/publish/badge.svg)](https://github.com/shimmeringbee/shimmeringbee.io/actions)
 
 > Website for shimmeringbee.io.
 
