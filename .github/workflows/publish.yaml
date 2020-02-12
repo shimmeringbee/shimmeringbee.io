@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v1
+        with:
+          submodules: true
 
       - name: hugo
         uses: klakegg/actions-hugo@1.0.0
