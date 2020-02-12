@@ -1,0 +1,5 @@
+[[main]]
+  identifier = "docs"
+  name = "Documentation"
+  url = "docs"
+  weight = 1
