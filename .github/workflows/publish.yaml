@@ -1,4 +1,4 @@
-name: 'Build Hugo and Publish to S3'
+name: 'Publish'
 
 on: [push]
 
