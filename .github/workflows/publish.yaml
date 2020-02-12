@@ -1,5 +1,7 @@
 name: 'Build Hugo and Publish to S3'
 
+on: [push]
+
 jobs:
   build:
     name: Build and Publish
