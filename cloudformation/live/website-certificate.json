@@ -1,0 +1,42 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Stack for website certificate for CloudFront distribution, MUST be deployed in us-east-1.",
+    "Parameters": {
+      "DomainName": {
+        "Type": "String",
+        "Default": "shimmeringbee.io",
+        "Description": "Base domain name to use for website."
+      }
+    },
+    "Conditions": {
+      "InUsEast1": {
+        "Fn::Equals": [
+          {
+            "Ref": "AWS::Region"
+          },
+          "us-east-1"
+        ]
+    }
+    },
+    "Resources": {
+      "FrontEndCertificate": {
+        "Condition": "InUsEast1",
+        "Type": "AWS::CertificateManager::Certificate",
+        "Properties": {
+          "DomainName": {
+            "Ref": "DomainName"
+          },
+          "DomainValidationOptions": [
+            {
+              "DomainName": {
+                "Ref": "DomainName"
+              },
+              "ValidationDomain": {
+                "Ref": "DomainName"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }

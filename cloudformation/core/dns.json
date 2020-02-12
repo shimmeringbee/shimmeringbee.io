@@ -1,0 +1,30 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Main Route53 zone and core records.",
+    "Parameters": {
+        "DomainName": {
+            "Type": "String",
+            "Default": "shimmeringbee.io"
+        }
+    },
+    "Resources": {
+        "HostedZone": {
+            "Type": "AWS::Route53::HostedZone",
+            "Properties": {
+                "Name": {
+                    "Ref": "DomainName"
+                }
+            }
+        }
+    },
+    "Outputs": {
+        "ExportDomainName": {
+            "Export": {
+                "Name": "core-zone-domainname"
+            },
+            "Value": {
+                "Ref": "DomainName"
+            }
+        }
+    }
+}
