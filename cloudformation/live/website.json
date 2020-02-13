@@ -17,74 +17,32 @@
                 },
                 "VersioningConfiguration": {
                     "Status": "Enabled"
+                },
+                "WebsiteConfiguration": {
+                    "ErrorDocument": "/404.html",
+                    "IndexDocument": "index.html"
                 }
             }
         },
-        "CloudFrontOAI": {
-            "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
-            "Properties": {
-                "CloudFrontOriginAccessIdentityConfig": {
-                    "Comment": "CloudFront identity for restricting access to S3 buckets purely to CF principal."
-                }
-            }
-        },
-        "S3CloudFrontAccessPolicy": {
+        "S3BucketPolicy": {
             "Type": "AWS::S3::BucketPolicy",
             "Properties": {
                 "Bucket": {
                     "Ref": "S3Bucket"
                 },
                 "PolicyDocument": {
-                    "Version": "2008-10-17",
-                    "Id": "PolicyForCloudFrontPrivateContent",
+                    "Version": "2012-10-17",
                     "Statement": [
                         {
-                            "Sid": "1",
                             "Effect": "Allow",
-                            "Principal": {
-                                "CanonicalUser": {
-                                    "Fn::GetAtt": [
-                                        "CloudFrontOAI",
-                                        "S3CanonicalUserId"
-                                    ]
-                                }
-                            },
+                            "Principal": "*",
                             "Action": "s3:GetObject",
                             "Resource": {
                                 "Fn::Sub": [
-                                    "${Bucket}/*",
+                                    "arn:aws:s3:::${Bucket}/*",
                                     {
                                         "Bucket": {
-                                            "Fn::GetAtt": [
-                                                "S3Bucket",
-                                                "Arn"
-                                            ]
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "Sid": "2",
-                            "Effect": "Allow",
-                            "Principal": {
-                                "CanonicalUser": {
-                                    "Fn::GetAtt": [
-                                        "CloudFrontOAI",
-                                        "S3CanonicalUserId"
-                                    ]
-                                }
-                            },
-                            "Action": "s3:ListBucket",
-                            "Resource": {
-                                "Fn::Sub": [
-                                    "${Bucket}",
-                                    {
-                                        "Bucket": {
-                                            "Fn::GetAtt": [
-                                                "S3Bucket",
-                                                "Arn"
-                                            ]
+                                            "Ref": "S3Bucket"
                                         }
                                     }
                                 ]
@@ -102,25 +60,20 @@
                     "IPV6Enabled": true,
                     "Origins": [
                         {
+                            "CustomOriginConfig": {
+                                "OriginProtocolPolicy": "http-only"
+                            },
                             "DomainName": {
-                                "Fn::GetAtt": [
-                                    "S3Bucket",
-                                    "DomainName"
+                                "Fn::Sub": [
+                                    "${Domain}.s3-website-${AWS::Region}.amazonaws.com",
+                                    {
+                                        "Domain": {
+                                            "Fn::ImportValue": "core-zone-domainname"
+                                        }
+                                    }
                                 ]
                             },
-                            "Id": "S3Origin",
-                            "S3OriginConfig": {
-                                "OriginAccessIdentity": {
-                                    "Fn::Sub": [
-                                        "origin-access-identity/cloudfront/${OAI}",
-                                        {
-                                            "OAI": {
-                                                "Ref": "CloudFrontOAI"
-                                            }
-                                        }
-                                    ]
-                                }
-                            }
+                            "Id": "S3Origin"
                         }
                     ],
                     "Enabled": "true",
