@@ -21,9 +21,9 @@ The software stack which will make up the bridge/gateway functionality is being 
 
 ![Shimmering Bee Controller Stack](/imgs/docs/introduction/controller-stack.png)
 
-### apiarist
+### controller
 
-Apiarist is a working title for the software which will become the bridge/gateway. It will consume Zigbee events and messages, harmonise those into a standard set of interfaces for devices, and expose them via numerious interfaces. The following interfaces are being considered:
+The controller is the Zigbee controller/gateway/hub. It will consume Zigbee events and messages, harmonise those into a standard set of interfaces for devices, and expose them via numerious interfaces. The following interfaces are being considered:
 
 * http/https API
   * **Shimmering Bee**
@@ -40,7 +40,7 @@ The controller application will be developed with an API first approach, with an
 
 ### zigbee
 
-The `zigbee` library provides standard interfaces and structures for apiarist to communicate to Zigbee devices. Providing another library uses the same interfaces, supporting Zigbee devices other than the CC253X should be trivial.
+The `zigbee` library provides standard interfaces and structures for controller to communicate to Zigbee devices. Providing another library uses the same interfaces, supporting Zigbee devices other than the CC253X should be trivial.
 
 ### zcl
 
