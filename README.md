@@ -37,7 +37,7 @@ docker run --rm -it -p 1313:1313 -v $(pwd):/src lakegg/hugo:ext-alpine server --
 
 Feel free to dive in! [Open an issue](https://github.com/shimmeringbee/shimmeringbee.io/issues/new) or submit PRs.
 
-All Shimmering Bee projects follow the [Contributor Covenant](http://contributor-covenant.org/version/1/3/0/) Code of Conduct.
+All Shimmering Bee projects follow the [Contributor Covenant](https://shimmeringbee.io/docs/code_of_conduct/) Code of Conduct.
 
 ## License
 
