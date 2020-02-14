@@ -9,7 +9,7 @@ weight: 1
 
 Shimmering Bee aims to be a suite of software and libraries which will replace the functionality of devices such as the Phillips Hue bridge or IKEA TRÅDFRI gateway.
 
-The project is initially focusing on Zigbee devices, made available through the Texus Instruments CC253X 2.4Ghz SOC processors. However in the future should be easily expandable to other IOT technologies.
+The project is initially focusing on Zigbee devices, made available through the Texas Instruments CC253X 2.4Ghz SOC processors. However in the future should be easily expandable to other IOT technologies.
 
 ## What can it do?
 
@@ -37,6 +37,10 @@ The controller is the Zigbee controller/gateway/hub. It will consume Zigbee even
   Exposing abstracted devices for interaction with any other home automation systems.
 
 The controller application will be developed with an API first approach, with any native web interface using the APIs.
+
+### zda
+
+The `zda` library provides managers and conversions from Zigbee to Shimmering Bee device abstraction. This abstraction allows easy addition of other home automation technologies at a later point, such as device import via MQTT.
 
 ### zigbee
 
