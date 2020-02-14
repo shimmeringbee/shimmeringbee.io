@@ -13,7 +13,7 @@ The project is initially focusing on Zigbee devices, made available through the 
 
 ## What can it do?
 
-At the moment early development is underway, much ground work has been done in order to provide a foundation to interact with Zigbee devices. The consume style bridge or gateway does not yet exist, however is due to be started in the near future.
+At the moment early development is underway, much ground work has been done in order to provide a foundation to interact with Zigbee devices. The consumer style controller does not yet exist, however is due to be started in the near future.
 
 ## What makes up the software stack?
 
