@@ -1,5 +1,11 @@
-[[main]]
+[[docs]]
   identifier = "docs"
   name = "Documentation"
   url = "docs"
   weight = 1
+
+[[discord]]
+  identifier = "discord"
+  name = "Discord"
+  url = "https://discord.gg/99rPz2h"
+  weight = 2
