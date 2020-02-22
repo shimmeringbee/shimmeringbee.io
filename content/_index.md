@@ -19,4 +19,7 @@ buttons:
   - link: https://github.com/shimmeringbee
     text: GITHUB
     color: default
+  - link: https://discord.gg/99rPz2h
+    text: Discord
+    color: default
 ---
